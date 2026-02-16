@@ -19,13 +19,43 @@ We not only make the encoder structure-aware by leveraging the source code's syn
 </p>
 
 
-## Setting up conda environment
-    conda create -n structcoder --file structcoder.yml
-    conda activate structcoder
-For running preprocessing notebooks, add the created structcoder conda enviroment to jupyter notebook using the following commands.
+## Setting up Python environment
 
-    conda install -c anaconda ipykernel
-    python3 -m ipykernel install --user --name=structcoder
+### Mac (Apple Silicon) - Recommended
+The easiest way to set up on Mac is using `uv`:
+
+```bash
+# Install uv if you don't have it
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Create virtual environment
+uv venv .venv
+
+# Activate it
+source .venv/bin/activate
+
+# Install dependencies (Mac ARM optimized)
+uv pip install -r requirements-mac-arm.txt
+
+# Or use the automated install script
+chmod +x fix_mac_install.sh
+./fix_mac_install.sh
+```
+
+### Other platforms - Conda
+```bash
+conda create -n structcoder --file structcoder.yml
+conda activate structcoder
+
+# For running preprocessing notebooks
+conda install -c anaconda ipykernel
+python3 -m ipykernel install --user --name=structcoder
+```
+
+### Verify installation
+```bash
+python -c "import torch, transformers, tree_sitter; print('✅ All packages loaded successfully!')"
+```
 
 ## Download Large Files (Required)
 
