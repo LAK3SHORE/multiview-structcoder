@@ -27,13 +27,50 @@ For running preprocessing notebooks, add the created structcoder conda enviromen
     conda install -c anaconda ipykernel
     python3 -m ipykernel install --user --name=structcoder
 
+## Download Large Files (Required)
+
+Due to GitHub's file size limitations, the preprocessed datasets and model checkpoints are hosted separately.
+
+**Download Link:** [INSERT GOOGLE DRIVE LINK HERE]
+
+### What's included:
+- `data/` - Preprocessed datasets (~25GB)
+  - `apps_generation/` - APPS dataset
+  - `codexglue_generation/` - CodeXGLUE generation dataset
+  - `codexglue_translation/` - CodeXGLUE translation dataset
+  - `pretrain/` - Pretraining dataset
+- `saved_models/` - Model checkpoints
+  - `pretrain/checkpoint_best/` - Best pretrained checkpoint
+
+### Installation Instructions:
+1. Download the zip file from the link above
+2. Extract the zip file - you should see two folders: `data/` and `saved_models/`
+3. Copy both folders to the **root directory** of this repository:
+   ```
+   multiview-structcoder/
+   ├── data/                    # ← Place the extracted data folder here
+   ├── saved_models/           # ← Place the extracted saved_models folder here
+   ├── CodeBLEU/
+   ├── apps_eval/
+   ├── parser/
+   ├── README.md
+   └── ... (other files)
+   ```
+4. Verify the structure - you should now have:
+   - `./data/apps_generation/preprocessed_data_by_split.pkl`
+   - `./data/codexglue_generation/preprocessed_data_by_split.pkl`
+   - `./data/codexglue_translation/preprocessed_data_by_split.pkl`
+   - `./saved_models/pretrain/checkpoint_best/data.pkl`
+
+**Note:** These folders are listed in `.gitignore` and will not be tracked by git.
+
 ## Data Preprocessing
 All datasets are loaded from Huggingface's Datasets library except for concode which can be obtained from [here](https://github.com/microsoft/CodeXGLUE/tree/main/Text-Code/text-to-code/dataset/concode). Edit the path to Concode dataset in finetune_preprocess.ipynb by replacing '../datasets/concode/'.
 
 Run the cells in pretrain_preprocess.ipynb and finetune_preprocess.ipynb. This should create a folder data/ with subfolders for each dataset used for experiments. You can skip pretrain_preprocess.ipynb if you choose to run our finetuning codes with the provided pretrained checkpoint. 
 
 ## Download pretrained checkpoint
-Download the pretrained model weights from [here](https://drive.google.com/file/d/10Jee9uv4-XuqecWTlKvo1CeNQh1hOXEs/view?usp=sharing) and place it under saved_models/pretrain/.
+The pretrained model weights are included in the large files download (see "Download Large Files" section above). If you only need the pretrained checkpoint without the datasets, you can also download it separately from [here](https://drive.google.com/file/d/10Jee9uv4-XuqecWTlKvo1CeNQh1hOXEs/view?usp=sharing) and place it under `saved_models/pretrain/`.
 
 ## Training commands
 #### Pretraining: 
