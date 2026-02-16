@@ -1,0 +1,38 @@
+# Large data files
+data/
+*.pkl
+
+# Large model checkpoints
+saved_models/
+*.bin
+*.pt
+*.pth
+*.ckpt
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+*.log
+
+# Tree-sitter compiled libraries
+parser/*.so
+parser/build/
