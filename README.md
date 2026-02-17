@@ -61,7 +61,7 @@ python -c "import torch, transformers, tree_sitter; print('✅ All packages load
 
 Due to GitHub's file size limitations, the preprocessed datasets and model checkpoints are hosted separately.
 
-**Download Link:** [INSERT GOOGLE DRIVE LINK HERE]
+**Download Link:** https://drive.google.com/file/d/1DXR8zz3CQC0Wvm-HkYMJM1C8s9DGA38k/view?usp=drive_link
 
 ### What's included:
 - `data/` - Preprocessed datasets (~25GB)
